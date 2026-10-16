@@ -76,11 +76,8 @@
             padding-right: 1.25rem;
         }
 
-        /* =========================================================
-           HERO BACKGROUND
-           Đậm bên trái → trong dần sang phải
-           ========================================================= */
-        .hero-gradient {
+        /* Banner kéo dài phủ kín cả phần số liệu bên dưới */
+        .hero-banner-extended {
             background:
                 linear-gradient(90deg,
                     rgba(7, 37, 59, 0.94) 0%,
@@ -114,16 +111,6 @@
                 0 8px 10px -6px rgba(0, 0, 0, 0.08);
         }
 
-        .sticky-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background-color: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 15px -1px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
         .section-title {
             position: relative;
             display: inline-block;
@@ -146,463 +133,259 @@
             left: 0;
             transform: none;
         }
-
-        /* =========================================================
-           STATS BAR
-           Dải mỏng, nền xanh ổn định
-           ========================================================= */
-        .stats-bg {
-            background:
-                linear-gradient(90deg,
-                    rgba(7, 37, 59, 0.96),
-                    rgba(0, 76, 153, 0.94)),
-                url('HAI00987.JPG') center/cover fixed;
-        }
-
-        .stats-item {
-            min-height: 52px;
-        }
-
-        @media (max-width: 767px) {
-            .hero-gradient {
-                background:
-                    linear-gradient(90deg,
-                        rgba(7, 37, 59, 0.95) 0%,
-                        rgba(7, 37, 59, 0.86) 42%,
-                        rgba(0, 76, 153, 0.48) 75%,
-                        rgba(0, 102, 204, 0.18) 100%),
-                    url('banner.jpg') center/cover no-repeat;
-            }
-
-            .stats-item {
-                min-height: 42px;
-            }
-        }
     </style>
 </head>
 
 <body class="bg-paper text-ink antialiased">
 
-    <!-- =========================================================
-         TOP BAR
-         ========================================================= -->
-    <div class="bg-gray-900 text-gray-300 py-2.5 text-xs hidden md:block border-b border-gray-800">
+    <!-- TOP BAR -->
+    <div class="bg-gray-900 text-gray-300 py-2 text-xs hidden md:block border-b border-gray-800">
         <div class="container-site flex justify-between items-center">
-
             <div class="flex items-center space-x-6">
                 <span class="flex items-center hover:text-white transition">
                     <i class="fas fa-map-marker-alt text-md-blue mr-2"></i>
                     Tổ Dân Phố Quyết Hùng, P. Bạch Đằng, TP. Hải Phòng
                 </span>
-
                 <a href="mailto:info@minhduc-caco3.com" class="flex items-center hover:text-white transition">
                     <i class="fas fa-envelope text-md-blue mr-2"></i>
                     info@minhduc-caco3.com
                 </a>
             </div>
-
             <div class="flex items-center space-x-6">
                 <a href="tel:(84) 225.3661612"
                     class="flex items-center font-semibold text-white hover:text-md-blue transition">
                     <i class="fas fa-phone-alt text-md-blue mr-2"></i>
                     (84) 225.3661612
                 </a>
-
                 <div class="flex items-center space-x-2 border-l border-gray-700 pl-4">
-                    <button type="button" class="text-white font-bold hover:text-md-blue transition">
-                        VI
-                    </button>
+                    <button type="button" class="text-white font-bold hover:text-md-blue transition">VI</button>
                     <span class="text-gray-600">/</span>
-                    <button type="button" class="text-gray-400 hover:text-white transition font-medium">
-                        EN
-                    </button>
+                    <button type="button" class="text-gray-400 hover:text-white transition font-medium">EN</button>
                 </div>
             </div>
-
         </div>
     </div>
 
-
-    <!-- =========================================================
-         MAIN NAVIGATION
-         ========================================================= -->
+    <!-- MAIN NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-md">
+        <div class="container-site py-2">
+            <div class="flex justify-between items-center gap-4">
 
-        <div class="container-site py-2.5 sm:py-3">
-
-            <div class="flex justify-between items-center">
-
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center space-x-3 group" aria-label="Trang chủ Hóa chất Minh Đức">
-
-                    <img src="logo.png" alt="Công ty Cổ phần Hóa chất Minh Đức"
-                        class="h-12 lg:h-14 w-auto object-contain group-hover:scale-105 transition duration-300"
-                        onError="this.onerror=null; this.src='http://minhduc-caco3.com/images/MinhDuc/logo.png';" />
-
+                <!-- Logo & Tên công ty -->
+                <a href="index.html" class="flex items-center space-x-3.5 shrink-0 group"
+                    aria-label="Trang chủ Hóa chất Minh Đức">
+                    <img src="logo.png" alt="Logo Minh Đức"
+                        class="h-12 lg:h-14 w-auto object-contain group-hover:scale-105 transition duration-300" />
                     <div>
-                        <div class="text-md-blue font-bold text-xs sm:text-sm uppercase tracking-wide leading-tight">
-                            CÔNG TY CỔ PHẦN
-                        </div>
-
-                        <div
-                            class="text-gray-900 font-extrabold text-sm sm:text-base md:text-lg uppercase tracking-wider leading-tight">
-                            HÓA CHẤT MINH ĐỨC
-                        </div>
+                        <div class="text-md-blue font-bold text-[12px] uppercase leading-none">CÔNG TY CỔ PHẦN</div>
+                        <div class="text-gray-900 font-extrabold text-sm sm:text-base uppercase leading-tight">
+                            HÓA CHẤT MINH ĐỨC</div>
                     </div>
-
                 </a>
-
 
                 <!-- Desktop Menu -->
-                <nav class="hidden xl:flex items-center space-x-7 font-bold text-sm uppercase tracking-wide">
+                <nav class="hidden xl:flex items-center space-x-4 font-bold text-[13px] uppercase tracking-wide">
+                    <a href="index.html" class="text-md-blue border-b-2 border-md-blue py-1">Trang chủ</a>
 
-                    <a href="index.html" class="text-md-blue border-b-2 border-md-blue py-2">
-                        Trang chủ
-                    </a>
-
-
-                    <!-- Giới thiệu -->
-                    <div class="relative group cursor-pointer py-2">
-
+                    <div class="relative group cursor-pointer py-1">
                         <a href="gioi-thieu.html"
                             class="text-gray-700 hover:text-md-blue transition flex items-center gap-1">
-                            Giới thiệu
-                            <i class="fas fa-angle-down text-[11px] opacity-70"></i>
+                            Giới thiệu <i class="fas fa-angle-down text-[10px] opacity-70"></i>
                         </a>
-
                         <div
-                            class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-b-lg border-t-4 border-md-blue w-56 py-2 z-50 transition-all opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
-
+                            class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-b-lg border-t-4 border-md-blue w-56 py-2 z-50">
                             <a href="gioi-thieu.html"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Giới thiệu chung
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Giới
+                                thiệu chung</a>
                             <a href="gioi-thieu.html#lich-su"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Lịch sử hình thành
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Lịch
+                                sử hình thành</a>
                             <a href="gioi-thieu.html#co-cau"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Cơ cấu tổ chức
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Cơ
+                                cấu tổ chức</a>
                         </div>
-
                     </div>
 
-
-                    <!-- Sản phẩm -->
-                    <div class="relative group cursor-pointer py-2">
-
+                    <div class="relative group cursor-pointer py-1">
                         <a href="san-pham.html"
                             class="text-gray-700 hover:text-md-blue transition flex items-center gap-1">
-                            Sản phẩm
-                            <i class="fas fa-angle-down text-[11px] opacity-70"></i>
+                            Sản phẩm <i class="fas fa-angle-down text-[10px] opacity-70"></i>
                         </a>
-
                         <div
-                            class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-b-lg border-t-4 border-md-blue w-64 py-2 z-50 transition-all opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
-
-                            <a href="san-pham.html"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Tất cả sản phẩm
-                            </a>
-
+                            class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-b-lg border-t-4 border-md-blue w-60 py-2 z-50">
                             <a href="san-pham.html#voi-cao-caoh2"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Vôi sống &amp; vôi ngâm nước
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Vôi
+                                sống &amp; vôi ngậm nước</a>
                             <a href="san-pham.html#bot-nhe-caco3"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Bột nhẹ CaCO₃
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Bột
+                                nhẹ CaCO₃</a>
                             <a href="san-pham.html#bot-nang-caco3"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Bột nặng CaCO₃
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Bột
+                                nặng CaCO₃</a>
+                            <a href="san-pham.html#bot-phu-gia-thuc-pham"
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Bột
+                                phụ gia thực phẩm</a>
+                            <a href="san-pham.html#bot-trang-phu"
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Bột
+                                tráng phủ</a>
                             <a href="san-pham.html#khi-co2-liquefied"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Khí CO₂ hóa lỏng
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Khí
+                                CO₂ hóa lỏng</a>
                         </div>
-
                     </div>
 
-
-                    <!-- Công ty -->
-                    <div class="relative group cursor-pointer py-2">
-
+                    <div class="relative group cursor-pointer py-1">
                         <a href="nha-may.html"
                             class="text-gray-700 hover:text-md-blue transition flex items-center gap-1">
-                            Công ty
-                            <i class="fas fa-angle-down text-[11px] opacity-70"></i>
+                            Ban ngành <i class="fas fa-angle-down text-[10px] opacity-70"></i>
                         </a>
-
                         <div
-                            class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-b-lg border-t-4 border-md-blue w-56 py-2 z-50 transition-all opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
-
+                            class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-b-lg border-t-4 border-md-blue w-48 py-2 z-50">
                             <a href="nha-may.html"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Đảng bộ
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Đảng
+                                bộ</a>
                             <a href="nha-may.html"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Công đoàn
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Công
+                                đoàn</a>
                             <a href="nha-may.html"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Đoàn TNCS HCM
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Đoàn
+                                TNCS HCM</a>
                             <a href="nha-may.html"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Ban nữ công
-                            </a>
-
-                            <a href="nha-may.html"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Báo cáo
-                            </a>
-
-                            <a href="nha-may.html"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Thông báo nội bộ
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Ban
+                                nữ công</a>
                         </div>
-
                     </div>
 
+                    <a href="#" class="text-gray-700 hover:text-md-blue transition py-1">Báo cáo</a>
 
-                    <!-- Tin tức -->
-                    <div class="relative group cursor-pointer py-2">
+                    <div class="relative group cursor-pointer py-1">
+                        <a href="#" class="text-gray-700 hover:text-md-blue transition flex items-center gap-1">
+                            Nội bộ <i class="fas fa-angle-down text-[10px] opacity-70"></i>
+                        </a>
+                        <div
+                            class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-b-lg border-t-4 border-md-blue w-48 py-2 z-50">
+                            <a href="#"
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Thông
+                                báo mới</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Mẫu
+                                văn bản</a>
+                        </div>
+                    </div>
 
+                    <a href="#" class="text-gray-700 hover:text-md-blue transition py-1">Cổ đông</a>
+
+                    <div class="relative group cursor-pointer py-1">
                         <a href="#tin-tuc" class="text-gray-700 hover:text-md-blue transition flex items-center gap-1">
-                            Tin tức
-                            <i class="fas fa-angle-down text-[11px] opacity-70"></i>
+                            Tin tức <i class="fas fa-angle-down text-[10px] opacity-70"></i>
                         </a>
-
                         <div
-                            class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-b-lg border-t-4 border-md-blue w-56 py-2 z-50 transition-all opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
-
+                            class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-b-lg border-t-4 border-md-blue w-48 py-2 z-50">
                             <a href="#tin-tuc"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Tin công ty
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Tin
+                                công ty</a>
                             <a href="#tin-tuc"
-                                class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold transition">
-                                Tin chuyên ngành
-                            </a>
-
+                                class="block px-4 py-2 text-xs text-gray-700 hover:bg-md-gray hover:text-md-blue font-semibold">Tin
+                                chuyên ngành</a>
                         </div>
-
                     </div>
 
-
-                    <a href="lien-he.html" class="text-gray-700 hover:text-md-blue transition py-2">
-                        Liên hệ
-                    </a>
-
+                    <a href="lien-he.html" class="text-gray-700 hover:text-md-blue transition py-1">Liên hệ</a>
                 </nav>
 
-
-                <!-- Desktop Quote Button -->
-                <div class="hidden xl:block">
-
+                <!-- CTA Button -->
+                <div class="hidden xl:block shrink-0">
                     <a href="lien-he.html"
-                        class="bg-md-blue text-white px-6 py-2.5 rounded hover:bg-md-blue-dark transition font-semibold text-sm shadow-md flex items-center gap-2">
-
-                        <i class="fas fa-paper-plane"></i>
-                        Nhận Báo Giá
-
+                        class="bg-md-blue text-white px-4 py-2 rounded hover:bg-md-blue-dark transition font-semibold text-xs shadow-md flex items-center gap-1.5">
+                        <i class="fas fa-paper-plane"></i> Nhận báo giá
                     </a>
-
                 </div>
-
 
                 <!-- Mobile Button -->
-                <button class="xl:hidden text-gray-800 text-2xl focus:outline-none p-2 hover:bg-gray-100 rounded"
+                <button class="xl:hidden text-gray-800 text-xl focus:outline-none p-2 hover:bg-gray-100 rounded"
                     onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
                     aria-label="Toggle Navigation">
-
                     <i class="fas fa-bars"></i>
-
                 </button>
-
             </div>
-
         </div>
-
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden xl:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0 z-50">
-
-            <div class="px-4 py-3 space-y-1">
-
-                <a href="index.html" class="block px-4 py-2 text-base font-bold text-md-blue bg-blue-50 rounded-md">
-                    Trang chủ
-                </a>
-
-                <a href="gioi-thieu.html"
-                    class="block px-4 py-2 text-base font-semibold text-gray-800 hover:text-md-blue hover:bg-gray-50 rounded-md border-b border-gray-100">
-                    Giới thiệu
-                </a>
-
-                <a href="san-pham.html"
-                    class="block px-4 py-2 text-base font-semibold text-gray-800 hover:text-md-blue hover:bg-gray-50 rounded-md border-b border-gray-100">
-                    Sản phẩm
-                </a>
-
-                <a href="nha-may.html"
-                    class="block px-4 py-2 text-base font-semibold text-gray-800 hover:text-md-blue hover:bg-gray-50 rounded-md border-b border-gray-100">
-                    Công ty
-                </a>
-
-                <a href="#tin-tuc"
-                    class="block px-4 py-2 text-base font-semibold text-gray-800 hover:text-md-blue hover:bg-gray-50 rounded-md border-b border-gray-100">
-                    Tin tức
-                </a>
-
-                <a href="lien-he.html"
-                    class="block px-4 py-2 text-base font-semibold text-gray-800 hover:text-md-blue hover:bg-gray-50 rounded-md">
-                    Liên hệ
-                </a>
-
-            </div>
-
-        </div>
-
     </header>
 
-
-    <!-- =========================================================
-         HERO + STATS
-         ========================================================= -->
+    <!-- HERO + STATS -->
     <div
-        class="min-h-[calc(100vh-108px)] lg:h-[calc(100vh-108px)] flex flex-col justify-between bg-navy relative overflow-hidden">
+        class="min-h-[calc(100vh-96px)] lg:h-[calc(100vh-96px)] flex flex-col justify-between hero-banner-extended relative overflow-hidden">
 
-
-        <!-- HERO -->
+        <!-- Phần nội dung chính của Hero -->
         <section
-            class="hero-gradient flex-1 min-h-0 flex items-center justify-start text-white relative overflow-hidden py-4 sm:py-6">
-
-            <div class="container-site z-10 py-6 md:py-10 fade-in-up my-auto">
-
+            class="flex-1 min-h-0 flex items-center justify-start text-white relative overflow-hidden py-4 sm:py-6">
+            <div class="container-site z-10 py-6 md:py-8 fade-in-up my-auto">
                 <div class="max-w-3xl">
-
                     <h1
                         class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold uppercase leading-tight mb-4 tracking-wide text-white">
-
-                        Giải pháp hóa chất
-                        <span class="text-blue-300">
-                            <br>
-                            công nghiệp hàng đầu
-                        </span>
-
+                        Giải pháp hóa chất <span class="text-blue-300"><br>công nghiệp hàng đầu</span>
                     </h1>
-
-
                     <p
-                        class="text-sm text-balance md:text-lg lg:text-xl mb-7 text-gray-100 leading-relaxed font-light max-w-2xl">
-
-                        Hơn 45 năm tiên phong sản xuất và cung cấp bột nhẹ CaCO3, bột nặng và vôi thương phẩm.
-                        Đối tác tin cậy của ngành Nhựa, Sơn, Giấy, Cao su trong nước và quốc tế.
-
+                        class="text-sm text-balance md:text-lg lg:text-xl mb-6 text-gray-100 leading-relaxed font-light max-w-2xl">
+                        Hơn 45 năm tiên phong sản xuất và cung cấp bột nhẹ CaCO3, bột nặng và vôi thương phẩm. Đối tác
+                        tin cậy của ngành Nhựa, Sơn, Giấy, Cao su trong nước và quốc tế.
                     </p>
-
-
                     <div class="flex flex-wrap gap-4">
-
                         <a href="san-pham.html"
                             class="bg-md-blue text-white font-bold py-3.5 px-8 rounded hover:bg-md-blue-dark transition shadow-lg flex items-center uppercase tracking-wider text-sm md:text-base">
-
-                            Xem Sản Phẩm
-                            <i class="fas fa-arrow-right ml-2.5"></i>
-
+                            Xem Sản Phẩm <i class="fas fa-arrow-right ml-2.5"></i>
                         </a>
-
-
                         <a href="lien-he.html"
                             class="bg-white/10 backdrop-blur-md border-2 border-white text-white font-bold py-3.5 px-8 rounded hover:bg-white hover:text-navy transition flex items-center uppercase tracking-wider text-sm md:text-base">
-
                             Liên Hệ Ngay
-
                         </a>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <section class="stats-bg text-white py-2 sm:py-2.5 shrink-0 relative border-t border-white/10">
+        <!-- Khối số liệu -->
+        <section
+            class="text-white py-3 sm:py-3.5 shrink-0 relative border-t border-white/20 bg-gradient-to-r from-[#07253b]/90 via-[#0c3c5c]/80 to-[#004c99]/85 backdrop-blur-sm shadow-lg">
             <div class="container-site relative z-10">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-0 text-center divide-x divide-white/20">
+                <div
+                    class="flex flex-wrap md:flex-nowrap items-center justify-start text-left divide-y md:divide-y-0 md:divide-x divide-white/20">
 
                     <div
-                        class="stats-item px-2 sm:px-3 flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap">
+                        class="w-1/2 md:w-auto px-4 md:pr-8 md:pl-0 py-1.5 md:py-0 flex items-center gap-2.5 whitespace-nowrap">
                         <span
-                            class="text-blue-200 text-[9px] sm:text-[10px] lg:text-xs uppercase tracking-wide font-semibold leading-none translate-y-[2px] whitespace-nowrap">
-                            THÀNH LẬP NĂM
-                        </span>
+                            class="text-blue-200 text-xs lg:text-sm uppercase tracking-wide font-bold leading-none">THÀNH
+                            LẬP NĂM</span>
                         <span
-                            class="font-display text-2xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
-                            1979
-                        </span>
-
+                            class="font-display text-3xl sm:text-4xl lg:text-[2.2rem] font-extrabold tracking-tight text-white leading-none">1979</span>
                     </div>
 
                     <div
-                        class="stats-item px-2 sm:px-3 flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap">
+                        class="w-1/2 md:w-auto px-4 md:px-8 py-1.5 md:py-0 flex items-center gap-2.5 whitespace-nowrap">
                         <span
-                            class="font-display text-2xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
-                            195+
-                        </span>
+                            class="font-display text-3xl sm:text-4xl lg:text-[2.2rem] font-extrabold tracking-tight text-white leading-none">195+</span>
                         <span
-                            class="text-blue-200 text-[9px] sm:text-[10px] lg:text-xs uppercase tracking-wide font-semibold leading-none translate-y-[2px] whitespace-nowrap">
-                            CÁN BỘ CNV
-                        </span>
+                            class="text-blue-200 text-xs lg:text-sm uppercase tracking-wide font-bold leading-none">CÁN
+                            BỘ CNV</span>
                     </div>
 
                     <div
-                        class="stats-item px-2 sm:px-3 flex items-center justify-center gap-1 sm:gap-1.5 whitespace-nowrap">
+                        class="w-1/2 md:w-auto px-4 md:px-8 py-1.5 md:py-0 flex items-center gap-2.5 whitespace-nowrap">
                         <span
-                            class="text-blue-200 text-[9px] sm:text-[10px] lg:text-xs uppercase tracking-wide font-semibold leading-none translate-y-[2px] whitespace-nowrap">
-                            SẢN LƯỢNG
-                        </span>
+                            class="text-blue-200 text-xs lg:text-sm uppercase tracking-wide font-bold leading-none">SẢN
+                            LƯỢNG</span>
                         <span
-                            class="font-display text-2xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
-                            135.000
-                        </span>
+                            class="font-display text-3xl sm:text-4xl lg:text-[2.2rem] font-extrabold tracking-tight text-white leading-none">135.000</span>
                         <span
-                            class="text-blue-200 text-[9px] sm:text-[10px] lg:text-xs uppercase tracking-wide font-semibold leading-none translate-y-[2px] whitespace-nowrap">
-                            TẤN/NĂM
-                        </span>
+                            class="text-blue-200 text-xs lg:text-sm uppercase tracking-wide font-bold leading-none">TẤN/NĂM</span>
                     </div>
 
                     <div
-                        class="stats-item px-2 sm:px-3 flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap">
+                        class="w-1/2 md:w-auto px-4 md:pl-8 md:pr-0 py-1.5 md:py-0 flex items-center gap-2.5 whitespace-nowrap">
                         <span
-                            class="text-blue-200 text-[9px] sm:text-[10px] lg:text-xs uppercase tracking-wide font-semibold leading-none translate-y-[2px] whitespace-nowrap">
-                            DIỆN TÍCH NHÀ MÁY
-                        </span>
+                            class="text-blue-200 text-xs lg:text-sm uppercase tracking-wide font-bold leading-none">DIỆN
+                            TÍCH NHÀ MÁY</span>
                         <span
-                            class="font-display text-2xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
-                            45.000m²
-                        </span>
+                            class="font-display text-3xl sm:text-4xl lg:text-[2.2rem] font-extrabold tracking-tight text-white leading-none">45.000m²</span>
                     </div>
 
                 </div>
@@ -611,1106 +394,719 @@
 
     </div>
 
-
+    <!-- CÁC SECTION TIẾP THEO -->
     <main class="flex-1">
 
-
-        <section id="gioi-thieu" class="py-20 lg:py-28 bg-white border-b border-gray-200">
-
+        <!-- GIỚI THIỆU -->
+        <section id="gioi-thieu" class="py-14 lg:py-20 bg-white border-b border-gray-200">
             <div class="container-site">
-
-                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-
+                <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
                     <div class="lg:w-1/2 relative w-full">
-
                         <div class="relative overflow-hidden rounded-xl shadow-xl border border-gray-200">
-
-                            <img src="HAI00987.JPG"
+                            <img src="HAI00989.JPG"
                                 alt="Hệ thống lò nung và dây chuyền Nhà máy Hóa chất Minh Đức Hải Phòng"
-                                class="w-full h-80 sm:h-96 lg:h-[420px] object-cover hover:scale-105 transition duration-700" />
-
+                                class="w-full h-80 sm:h-96 lg:h-[400px] object-cover hover:scale-105 transition duration-700" />
                         </div>
-
-
                         <div
                             class="absolute -bottom-6 -right-2 sm:bottom-6 sm:-right-6 bg-white p-5 sm:p-6 rounded-xl shadow-2xl text-center border-b-4 border-md-blue w-48 hidden sm:block">
-
-                            <div class="text-4xl font-extrabold text-md-blue font-display mb-0.5">
-                                1979
+                            <div class="text-4xl font-extrabold text-md-blue font-display mb-0.5">1979</div>
+                            <div class="text-gray-600 font-semibold text-xs uppercase tracking-wider">Năm Thành Lập
                             </div>
-
-                            <div class="text-gray-600 font-semibold text-xs uppercase tracking-wider">
-                                Năm Thành Lập
-                            </div>
-
                         </div>
-
                     </div>
-
-
                     <div class="lg:w-1/2">
-
-                        <span class="text-md-blue font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">
-                            VỀ CHÚNG TÔI
-                        </span>
-
+                        <span class="text-md-blue font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">VỀ
+                            CHÚNG TÔI</span>
                         <h2
-                            class="text-3xl lg:text-4xl font-display font-extrabold text-gray-900 mb-6 leading-tight uppercase section-title section-title-left">
+                            class="text-3xl lg:text-4xl font-display font-extrabold text-gray-900 mb-5 leading-tight uppercase section-title section-title-left">
                             Giới thiệu Hóa chất Minh Đức
                         </h2>
-
-
-                        <p class="text-gray-600 mb-5 leading-relaxed text-base sm:text-lg">
-
-                            Thành lập từ năm 1979 và cổ phần hóa năm 1998,
-                            Công ty Cổ phần Hóa chất Minh Đức sở hữu nhà máy rộng
-                            45.000m² nằm tại vùng nguyên liệu đá vôi Tràng Kênh,
-                            Hải Phòng với hơn 195 cán bộ công nhân viên chuyên nghiệp.
-
+                        <p class="text-gray-600 mb-6 leading-relaxed text-base sm:text-lg text-justify">
+                            Hơn 45 năm hình thành và phát triển, Công ty Cổ phần Hóa chất Minh Đức là thương hiệu uy tín
+                            hàng đầu trong lĩnh vực sản xuất vôi sạch, bột CaCO₃ và khí công nghiệp. Sở hữu nhà máy rộng
+                            45.000m² tại vùng nguyên liệu đá vôi Tràng Kênh (Hải Phòng) cùng đội ngũ 195+ nhân sự chuyên
+                            nghiệp, chúng tôi tiên phong ứng dụng công nghệ sản xuất xanh, mang đến giải pháp tối ưu và
+                            bền vững cho các đối tác trong và ngoài nước.
                         </p>
-
-
-                        <p class="text-gray-600 mb-8 leading-relaxed text-base">
-
-                            Chúng tôi cam kết sản xuất xanh, thu hồi khí CO₂ từ
-                            lò nung vôi và cung cấp nguồn nguyên liệu chất lượng cao
-                            cho các ngành công nghiệp sơn, nhựa, giấy, luyện kim
-                            và nông nghiệp.
-
-                        </p>
-
-
-                        <ul class="space-y-3.5 mb-8">
-
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-md-blue mt-1 mr-3 text-lg"></i>
-                                <span class="text-gray-800 font-medium">
-                                    Nguồn đá vôi Tràng Kênh chất lượng cao ngay tại khu vực nhà máy
-                                </span>
-                            </li>
-
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-md-blue mt-1 mr-3 text-lg"></i>
-                                <span class="text-gray-800 font-medium">
-                                    Dây chuyền sản xuất xanh thu hồi khí CO₂ bảo vệ môi trường
-                                </span>
-                            </li>
-
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-md-blue mt-1 mr-3 text-lg"></i>
-                                <span class="text-gray-800 font-medium">
-                                    Hệ thống quản lý chất lượng tiêu chuẩn quốc tế ISO 9001:2015
-                                </span>
-                            </li>
-
-                        </ul>
-
-
                         <a href="gioi-thieu.html"
                             class="inline-flex items-center bg-gray-900 text-white font-bold py-3.5 px-8 rounded hover:bg-md-blue transition shadow-md uppercase text-sm tracking-wider">
-
-                            Xem Chi Tiết Giới Thiệu
-                            <i class="fas fa-long-arrow-alt-right ml-2.5"></i>
-
+                            Xem Chi Tiết Giới Thiệu <i class="fas fa-long-arrow-alt-right ml-2.5"></i>
                         </a>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-
-
-        <section id="san-pham" class="py-20 lg:py-28 bg-md-gray border-b border-gray-200">
-
+        <!-- SẢN PHẨM CHÍNH -->
+        <section id="san-pham" class="py-14 lg:py-20 bg-md-gray border-b border-gray-200">
             <div class="container-site">
-
-                <div class="text-center max-w-3xl mx-auto mb-16">
-
-                    <span class="text-md-blue font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">
-                        DANH MỤC SẢN PHẨM
-                    </span>
-
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-md-blue font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">DANH
+                        MỤC SẢN PHẨM</span>
                     <h2
                         class="text-3xl lg:text-4xl font-display font-extrabold text-gray-900 mb-4 uppercase section-title">
-                        Bốn nhóm sản phẩm chính
+                        Các nhóm sản phẩm chính
                     </h2>
-
-                    <p class="text-gray-600 mt-6 text-base sm:text-lg">
-                        Cùng một nguồn đá vôi Tràng Kênh, khép kín từ lò nung đến bột và khí CO₂.
-                    </p>
-
                 </div>
 
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
-
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <a href="san-pham.html#voi-cao-caoh2"
                         class="bg-white rounded-lg shadow-sm hover-lift overflow-hidden group border border-gray-200 flex flex-col justify-between">
-
                         <div>
-
                             <div class="h-56 overflow-hidden relative bg-gray-100">
-
-                                <img src="Vôi.png" alt="Vôi sống & vôi ngâm nước CaO Ca(OH)2"
+                                <img src="Vôi.png" alt="Vôi sống & vôi ngậm nước"
                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
-
                                     <span
-                                        class="text-white bg-md-blue px-4 py-2 rounded text-xs font-bold uppercase tracking-wider w-full text-center">
-                                        Xem chi tiết
-                                    </span>
-
+                                        class="text-white bg-md-blue px-4 py-2 rounded text-xs font-bold uppercase tracking-wider w-full text-center">Xem
+                                        chi tiết</span>
                                 </div>
-
                             </div>
-
-
                             <div
                                 class="p-6 border-t-4 border-transparent group-hover:border-md-blue transition duration-300">
-
-                                <span class="text-xs font-bold uppercase tracking-wider text-md-blue block mb-1">
-                                    CaO · Ca(OH)₂
-                                </span>
-
                                 <h3
-                                    class="text-xl font-display font-bold uppercase text-gray-900 mb-2.5 group-hover:text-md-blue transition leading-snug">
-                                    Vôi sống &amp; vôi ngâm nước
-                                </h3>
-
-                                <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">
-                                    Vôi mịn hàm lượng cao, phản ứng nhanh. Dùng trong xây dựng,
-                                    luyện kim, xử lý nước và nông nghiệp.
-                                </p>
-
+                                    class="text-xl font-display font-bold text-gray-900 mb-2.5 group-hover:text-md-blue transition leading-snug">
+                                    VÔI SỐNG CaO &amp; VÔI NGẬM NƯỚC Ca(OH)₂</h3>
+                                <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">Vôi mịn hàm lượng cao,
+                                    phản ứng nhanh. Dùng trong xây dựng, luyện kim, nông nghiệp, thủy sản.</p>
                             </div>
-
                         </div>
-
-
-                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 flex justify-between items-center">
-
-                            <span class="text-xs text-gray-400 font-semibold uppercase">
-                                Công suất:
-                            </span>
-
-                            <span class="text-sm font-extrabold text-md-blue">
-                                55.000 tấn/năm
-                            </span>
-
-                        </div>
-
                     </a>
-
 
                     <a href="san-pham.html#bot-nhe-caco3"
                         class="bg-white rounded-lg shadow-sm hover-lift overflow-hidden group border border-gray-200 flex flex-col justify-between">
-
                         <div>
-
                             <div class="h-56 overflow-hidden relative bg-gray-100">
-
                                 <img src="Bột nhẹ.png" alt="Bột nhẹ CaCO3 PCC"
                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
-
                                     <span
-                                        class="text-white bg-md-blue px-4 py-2 rounded text-xs font-bold uppercase tracking-wider w-full text-center">
-                                        Xem chi tiết
-                                    </span>
-
+                                        class="text-white bg-md-blue px-4 py-2 rounded text-xs font-bold uppercase tracking-wider w-full text-center">Xem
+                                        chi tiết</span>
                                 </div>
-
                             </div>
-
-
                             <div
                                 class="p-6 border-t-4 border-transparent group-hover:border-md-blue transition duration-300">
-
-                                <span class="text-xs font-bold uppercase tracking-wider text-md-blue block mb-1">
-                                    CaCO₃ PCC
-                                </span>
-
                                 <h3
                                     class="text-xl font-display font-bold uppercase text-gray-900 mb-2.5 group-hover:text-md-blue transition leading-snug">
-                                    Bột nhẹ CaCO₃
-                                </h3>
-
-                                <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">
-                                    Bột nhẹ kết tủa, độ trắng cao, hạt mịn micron.
-                                    Phù hợp nhựa, sơn, giấy và thức ăn chăn nuôi.
-                                </p>
-
+                                    Bột nhẹ CaCO₃</h3>
+                                <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">Bột nhẹ kết tủa, độ trắng
+                                    cao, hạt mịn micron. Phù hợp nhựa, sơn, giấy và thức ăn chăn nuôi.</p>
                             </div>
-
                         </div>
-
-
-                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 flex justify-between items-center">
-
-                            <span class="text-xs text-gray-400 font-semibold uppercase">
-                                Công suất:
-                            </span>
-
-                            <span class="text-sm font-extrabold text-md-blue">
-                                25.000 tấn/năm
-                            </span>
-
-                        </div>
-
                     </a>
-
 
                     <a href="san-pham.html#bot-nang-caco3"
                         class="bg-white rounded-lg shadow-sm hover-lift overflow-hidden group border border-gray-200 flex flex-col justify-between">
-
                         <div>
-
                             <div class="h-56 overflow-hidden relative bg-gray-100">
-
                                 <img src="Bột nặng.png" alt="Bột nặng CaCO3 GCC"
                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
-
                                     <span
-                                        class="text-white bg-md-blue px-4 py-2 rounded text-xs font-bold uppercase tracking-wider w-full text-center">
-                                        Xem chi tiết
-                                    </span>
-
+                                        class="text-white bg-md-blue px-4 py-2 rounded text-xs font-bold uppercase tracking-wider w-full text-center">Xem
+                                        chi tiết</span>
                                 </div>
-
                             </div>
-
-
                             <div
                                 class="p-6 border-t-4 border-transparent group-hover:border-md-blue transition duration-300">
-
-                                <span class="text-xs font-bold uppercase tracking-wider text-md-blue block mb-1">
-                                    CaCO₃ GCC
-                                </span>
-
                                 <h3
                                     class="text-xl font-display font-bold uppercase text-gray-900 mb-2.5 group-hover:text-md-blue transition leading-snug">
-                                    Bột nặng CaCO₃
-                                </h3>
-
-                                <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">
-                                    Nghiền từ đá vôi tinh khiết, độ sáng cao, cỡ hạt từ 5–45 µm.
-                                    Giảm chi phí nguyên liệu cho nhiều ngành.
-                                </p>
-
+                                    Bột nặng CaCO₃</h3>
+                                <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">Nghiền từ đá vôi tinh
+                                    khiết, độ sáng cao, cỡ hạt 5–45 µm. Giảm chi phí nguyên liệu cho nhiều ngành.</p>
                             </div>
-
                         </div>
-
-
-                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 flex justify-between items-center">
-
-                            <span class="text-xs text-gray-400 font-semibold uppercase">
-                                Công suất:
-                            </span>
-
-                            <span class="text-sm font-extrabold text-md-blue">
-                                30.000 tấn/năm
-                            </span>
-
-                        </div>
-
                     </a>
 
+                    <a href="san-pham.html#bot-phu-gia-thuc-pham"
+                        class="bg-white rounded-lg shadow-sm hover-lift overflow-hidden group border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <div class="h-56 overflow-hidden relative bg-gray-100">
+                                <img src="Bột phụ gia thực phẩm.png" alt="Bột phụ gia thực phẩm"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+                                    <span
+                                        class="text-white bg-md-blue px-4 py-2 rounded text-xs font-bold uppercase tracking-wider w-full text-center">Xem
+                                        chi tiết</span>
+                                </div>
+                            </div>
+                            <div
+                                class="p-6 border-t-4 border-transparent group-hover:border-md-blue transition duration-300">
+                                <h3
+                                    class="text-xl font-display font-bold uppercase text-gray-900 mb-2.5 group-hover:text-md-blue transition leading-snug">
+                                    Bột phụ gia thực phẩm</h3>
+                                <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">Độ tinh khiết cực
+                                    cao, kiểm định nghiêm ngặt an toàn vệ sinh phục vụ cho chế biến thực phẩm.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="san-pham.html#bot-trang-phu"
+                        class="bg-white rounded-lg shadow-sm hover-lift overflow-hidden group border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <div class="h-56 overflow-hidden relative bg-gray-100">
+                                <img src="Bột tráng phủ.png" alt="Bột tráng phủ"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+                                    <span
+                                        class="text-white bg-md-blue px-4 py-2 rounded text-xs font-bold uppercase tracking-wider w-full text-center">Xem
+                                        chi tiết</span>
+                                </div>
+                            </div>
+                            <div
+                                class="p-6 border-t-4 border-transparent group-hover:border-md-blue transition duration-300">
+                                <h3
+                                    class="text-xl font-display font-bold uppercase text-gray-900 mb-2.5 group-hover:text-md-blue transition leading-snug">
+                                    Bột tráng phủ</h3>
+                                <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">Bột canxi carbonate phủ
+                                    axit stearic, tăng độ phân tán và tương thích cao trong nhựa và hợp chất.</p>
+                            </div>
+                        </div>
+                    </a>
 
                     <a href="san-pham.html#khi-co2-liquefied"
                         class="bg-white rounded-lg shadow-sm hover-lift overflow-hidden group border border-gray-200 flex flex-col justify-between">
-
                         <div>
-
                             <div class="h-56 overflow-hidden relative bg-gray-100">
-
                                 <img src="Khí CO2.png" alt="Khí CO2 hóa lỏng"
                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
-
                                     <span
-                                        class="text-white bg-md-blue px-4 py-2 rounded text-xs font-bold uppercase tracking-wider w-full text-center">
-                                        Xem chi tiết
-                                    </span>
-
+                                        class="text-white bg-md-blue px-4 py-2 rounded text-xs font-bold uppercase tracking-wider w-full text-center">Xem
+                                        chi tiết</span>
                                 </div>
-
                             </div>
-
-
                             <div
                                 class="p-6 border-t-4 border-transparent group-hover:border-md-blue transition duration-300">
-
-                                <span class="text-xs font-bold uppercase tracking-wider text-md-blue block mb-1">
-                                    CO₂ Tinh Khiết
-                                </span>
-
                                 <h3
                                     class="text-xl font-display font-bold uppercase text-gray-900 mb-2.5 group-hover:text-md-blue transition leading-snug">
-                                    Khí CO₂ hóa lỏng
-                                </h3>
-
-                                <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">
-                                    Thu hồi từ khí thải lò nung vôi, tinh khiết ≥ 99,8%.
-                                    Dùng cho hàn, làm lạnh và hóa chất.
-                                </p>
-
+                                    Khí CO₂ hóa lỏng</h3>
+                                <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">Thu hồi từ khí thải lò
+                                    nung vôi, tinh khiết ≥ 99,8%. Dùng cho hàn, làm lạnh và hóa chất.</p>
                             </div>
-
                         </div>
-
-
-                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 flex justify-between items-center">
-
-                            <span class="text-xs text-gray-400 font-semibold uppercase">
-                                Công suất:
-                            </span>
-
-                            <span class="text-sm font-extrabold text-md-blue">
-                                25.000 tấn/năm
-                            </span>
-
-                        </div>
-
                     </a>
-
                 </div>
-
-
-                <div class="mt-12 text-center">
-
-                    <a href="san-pham.html"
-                        class="inline-flex items-center text-md-blue font-bold uppercase text-sm tracking-wider border-2 border-md-blue px-8 py-3 rounded hover:bg-md-blue hover:text-white transition">
-
-                        Xem Tất Cả Sản Phẩm
-                        <i class="fas fa-arrow-right ml-2.5"></i>
-
-                    </a>
-
-                </div>
-
             </div>
-
         </section>
 
-
-        <section class="bg-navy-dark text-white py-20 lg:py-28 border-b border-gray-800">
-
+        <!-- ỨNG DỤNG SẢN PHẨM -->
+        <section id="ung-dung" class="py-14 lg:py-20 bg-white border-b border-gray-200">
             <div class="container-site">
-
-                <div class="text-center max-w-3xl mx-auto mb-16">
-
-                    <span class="text-blue-400 font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">
-                        ƯU THẾ VƯỢT TRỘI
-                    </span>
-
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-md-blue font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">LĨNH
+                        VỰC HOẠT ĐỘNG</span>
                     <h2
-                        class="text-3xl lg:text-4xl font-display font-extrabold uppercase tracking-wide text-white section-title">
-                        Vì sao chọn Minh Đức
+                        class="text-3xl lg:text-4xl font-display font-extrabold text-gray-900 mb-4 uppercase section-title">
+                        Ứng dụng sản phẩm
                     </h2>
-
                 </div>
 
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-
-
-                    <div
-                        class="border border-white/15 bg-white/5 p-8 text-center shadow-lg hover:border-md-blue hover:bg-white/10 transition-all duration-300 rounded-lg flex flex-col justify-between backdrop-blur-sm hover-lift">
-
-                        <div>
-
-                            <div
-                                class="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-400/30 flex items-center justify-center mx-auto mb-5 text-blue-400 text-2xl">
-
-                                <i class="fas fa-leaf"></i>
-
-                            </div>
-
-                            <h3 class="font-display text-xl font-bold uppercase text-white mb-3">
-                                Sản xuất xanh
-                            </h3>
-
-                            <p class="text-sm text-gray-300 leading-relaxed">
-                                Thu hồi CO₂, hạn chế khói bụi trực tiếp ra môi trường,
-                                hướng tới kinh tế tuần hoàn.
-                            </p>
-
+                    <!-- Ngành Nhựa & Cao Su -->
+                    <a href="san-pham.html"
+                        class="relative h-80 rounded-xl overflow-hidden shadow-md group block hover-lift">
+                        <img src="Nhựa.png" alt="Ngành Nhựa & Cao Su"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+                        <!-- Lớp phủ mờ ban đầu dưới đáy, khi hover sẽ trải rộng toàn ảnh và đậm hơn -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/95 group-hover:via-black/80 group-hover:to-black/60 transition-all duration-500">
                         </div>
-
-                    </div>
-
-
-                    <div
-                        class="border border-white/15 bg-white/5 p-8 text-center shadow-lg hover:border-md-blue hover:bg-white/10 transition-all duration-300 rounded-lg flex flex-col justify-between backdrop-blur-sm hover-lift">
-
-                        <div>
-
-                            <div
-                                class="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-400/30 flex items-center justify-center mx-auto mb-5 text-blue-400 text-2xl">
-
-                                <i class="fas fa-shield-alt"></i>
-
-                            </div>
-
-                            <h3 class="font-display text-xl font-bold uppercase text-white mb-3">
-                                ISO 9001:2015
-                            </h3>
-
-                            <p class="text-sm text-gray-300 leading-relaxed">
-                                Hệ thống quản lý chất lượng được duy trì nghiêm ngặt
-                                trên toàn bộ dây chuyền sản xuất.
+                        <div class="absolute inset-0 p-6 flex flex-col justify-end text-white z-10">
+                            <h3
+                                class="font-display text-xl font-bold uppercase mb-2 group-hover:text-blue-300 transition">
+                                Ngành Nhựa &amp; Cao Su</h3>
+                            <p
+                                class="text-sm text-gray-200 leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
+                                Cung cấp chất độn CaCO3 giúp tăng độ bền cơ lý, cải thiện độ mịn bề mặt và tiết kiệm chi
+                                phí sản xuất.
                             </p>
-
                         </div>
+                    </a>
 
-                    </div>
-
-
-                    <div
-                        class="border border-white/15 bg-white/5 p-8 text-center shadow-lg hover:border-md-blue hover:bg-white/10 transition-all duration-300 rounded-lg flex flex-col justify-between backdrop-blur-sm hover-lift">
-
-                        <div>
-
-                            <div
-                                class="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-400/30 flex items-center justify-center mx-auto mb-5 text-blue-400 text-2xl">
-
-                                <i class="fas fa-industry"></i>
-
-                            </div>
-
-                            <h3 class="font-display text-xl font-bold uppercase text-white mb-3">
-                                Chủ động nguyên liệu
-                            </h3>
-
-                            <p class="text-sm text-gray-300 leading-relaxed">
-                                Nguồn đá vôi Tràng Kênh chất lượng cao ngay tại
-                                khu vực nhà máy Hải Phòng.
+                    <!-- Ngành Sơn & Phủ Bề Mặt -->
+                    <a href="san-pham.html"
+                        class="relative h-80 rounded-xl overflow-hidden shadow-md group block hover-lift">
+                        <img src="Sơn.jpg" alt="Ngành Sơn & Phủ Bề Mặt"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/95 group-hover:via-black/80 group-hover:to-black/60 transition-all duration-500">
+                        </div>
+                        <div class="absolute inset-0 p-6 flex flex-col justify-end text-white z-10">
+                            <h3
+                                class="font-display text-xl font-bold uppercase mb-2 group-hover:text-blue-300 transition">
+                                Ngành Sơn &amp; Phủ Bề Mặt</h3>
+                            <p
+                                class="text-sm text-gray-200 leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
+                                Độ trắng và độ mịn cao giúp tối ưu hóa khả năng phản xạ ánh sáng, tăng độ che phủ và
+                                tính thẩm mỹ cho màng sơn.
                             </p>
-
                         </div>
+                    </a>
 
-                    </div>
-
-
-                    <div
-                        class="border border-white/15 bg-white/5 p-8 text-center shadow-lg hover:border-md-blue hover:bg-white/10 transition-all duration-300 rounded-lg flex flex-col justify-between backdrop-blur-sm hover-lift">
-
-                        <div>
-
-                            <div
-                                class="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-400/30 flex items-center justify-center mx-auto mb-5 text-blue-400 text-2xl">
-
-                                <i class="fas fa-truck-loading"></i>
-
-                            </div>
-
-                            <h3 class="font-display text-xl font-bold uppercase text-white mb-3">
-                                Giao hàng ổn định
-                            </h3>
-
-                            <p class="text-sm text-gray-300 leading-relaxed">
-                                Tổng công suất 135.000 tấn/năm, đáp ứng kịp thời
-                                cho nội địa và các thị trường xuất khẩu.
+                    <!-- Ngành Giấy -->
+                    <a href="san-pham.html"
+                        class="relative h-80 rounded-xl overflow-hidden shadow-md group block hover-lift">
+                        <img src="giấy.webp" alt="Ngành Giấy"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/95 group-hover:via-black/80 group-hover:to-black/60 transition-all duration-500">
+                        </div>
+                        <div class="absolute inset-0 p-6 flex flex-col justify-end text-white z-10">
+                            <h3
+                                class="font-display text-xl font-bold uppercase mb-2 group-hover:text-blue-300 transition">
+                                Ngành Giấy</h3>
+                            <p
+                                class="text-sm text-gray-200 leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
+                                Nâng cao độ sáng, độ đục và khả năng bắt mực in, đáp ứng yêu cầu khắt khe của các nhà
+                                sản xuất giấy chất lượng cao.
                             </p>
-
                         </div>
+                    </a>
 
-                    </div>
+                    <!-- Nông nghiệp & Thủy sản -->
+                    <a href="san-pham.html"
+                        class="relative h-80 rounded-xl overflow-hidden shadow-md group block hover-lift">
+                        <img src="Nông nghiệp.png" alt="Nông nghiệp & Thủy sản"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/95 group-hover:via-black/80 group-hover:to-black/60 transition-all duration-500">
+                        </div>
+                        <div class="absolute inset-0 p-6 flex flex-col justify-end text-white z-10">
+                            <h3
+                                class="font-display text-xl font-bold uppercase mb-2 group-hover:text-blue-300 transition">
+                                Nông nghiệp &amp; Thủy sản</h3>
+                            <p
+                                class="text-sm text-gray-200 leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden">
+                                Vôi sạch và phụ gia hỗ trợ khử trùng ao hồ, cải tạo đất chua, bổ sung khoáng chất cho
+                                thức ăn chăn nuôi.
+                            </p>
+                        </div>
+                    </a>
 
                 </div>
-
             </div>
-
         </section>
 
-
-        <section class="container-site py-20 border-b border-gray-200">
-
-            <div class="text-center max-w-3xl mx-auto mb-12">
-
-                <span class="text-md-blue font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">
-                    ĐỐI TÁC CHIẾN LƯỢC
-                </span>
-
-                <h2
-                    class="font-display text-3xl md:text-4xl font-extrabold uppercase tracking-wide text-gray-900 section-title">
-                    Khách hàng tiêu biểu
-                </h2>
-
-            </div>
-
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
-                <div
-                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
-
-                    <img src="Logo-HoaPhat.png" alt="Tập đoàn Hòa Phát" class="max-h-12 w-auto object-contain" />
-
-                </div>
-                <div
-                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
-
-                    <img src="Logo-Jotun.jpg" alt="Sơn Jotun" class="max-h-12 w-auto object-contain" />
-
-                </div>
-                <div
-                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
-
-                    <img src="Logo-TOA.png" alt="Sơn TOA" class="max-h-12 w-auto object-contain" />
-
-                </div>
-                <div
-                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
-
-                    <img src="Logo-Toto.png" alt="Thiết bị vệ sinh TOTO" class="max-h-10 w-auto object-contain" />
-
-                </div>
-                <div
-                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
-
-                    <img src="Logo-AnHoa.png" alt="Giấy An Hòa" class="max-h-10 w-auto object-contain" />
-
-                </div>
-                <div
-                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
-
-                    <img src="Logo-Picomat.png" alt="Picomat" class="max-h-10 w-auto object-contain" />
-
-                </div>
-                <div
-                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
-
-                    <img src="Logo-SRC.png" alt="Cao Su Sao Vàng" class="max-h-10 w-auto object-contain" />
-
-                </div>
-                <div
-                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
-
-                    <img src="Logo-VuHoang.png" alt="Hóa chất Vũ Hoàng" class="max-h-10 w-auto object-contain" />
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================================
-             TIN TỨC & SỰ KIỆN (4 THẺ CÓ ẢNH - KHÔNG BORDER CHÂN - KHÔNG UNDERLINE)
-             ========================================================= -->
-        <section class="bg-md-gray py-20 border-b border-gray-200" id="tin-tuc">
-
+        <!-- TIN TỨC & SỰ KIỆN -->
+        <section class="bg-md-gray py-14 lg:py-20 border-b border-gray-200" id="tin-tuc">
             <div class="container-site">
-
-                <div class="text-center max-w-3xl mx-auto mb-16">
-
-                    <span class="text-md-blue font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">
-                        TIN TỨC &amp; SỰ KIỆN
-                    </span>
-
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-md-blue font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">TIN TỨC
+                        &amp; SỰ KIỆN</span>
                     <h2
                         class="font-display text-3xl md:text-4xl font-extrabold uppercase tracking-wide text-gray-900 section-title">
                         Tin tức mới nhất
                     </h2>
-
                 </div>
 
-                <!-- Lưới 4 thẻ tin tức -->
                 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-
-                    <!-- Thẻ 1 -->
                     <a class="border border-gray-200 bg-white rounded-lg hover:border-md-blue transition shadow-sm hover-lift flex flex-col justify-between overflow-hidden group"
                         href="#tin-tuc">
-
                         <div>
-                            <!-- Khung ảnh -->
                             <div class="h-44 overflow-hidden relative bg-gray-100">
                                 <img src="Tin tức 1.JPG" alt="Đưa vào hoạt động dây chuyền thu hồi khí CO2"
                                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                             </div>
-
                             <div class="p-5">
                                 <h3
                                     class="font-display text-lg font-bold uppercase text-gray-900 group-hover:text-md-blue transition leading-snug line-clamp-2">
                                     Đưa vào hoạt động dây chuyền thu hồi khí CO₂
                                 </h3>
-
                                 <p class="mt-2.5 text-xs text-gray-600 leading-relaxed line-clamp-3">
                                     Nhà máy hoàn tất dây chuyền hóa lỏng CO₂ từ khí thải lò nung vôi, đạt công suất
                                     25.000 tấn/năm.
                                 </p>
                             </div>
                         </div>
-
-                        <!-- Chân thẻ: Ngày tháng bên trái | Xem chi tiết bên phải -->
                         <div class="px-5 pb-5 pt-0 flex items-center justify-between text-xs font-medium mt-auto">
-                            <span class="text-gray-500 flex items-center">
-                                <i class="far fa-calendar-alt text-md-blue mr-1.5"></i>
-                                12/03/2025
-                            </span>
-
-                            <span class="font-bold text-md-blue flex items-center">
-                                Xem chi tiết
-                                <i
-                                    class="fas fa-chevron-right ml-1 text-[10px] transform group-hover:translate-x-1 transition"></i>
-                            </span>
+                            <span class="text-gray-500 flex items-center"><i
+                                    class="far fa-calendar-alt text-md-blue mr-1.5"></i> 12/03/2025</span>
+                            <span class="font-bold text-md-blue flex items-center">Xem chi tiết <i
+                                    class="fas fa-chevron-right ml-1 text-[10px] transform group-hover:translate-x-1 transition"></i></span>
                         </div>
-
                     </a>
 
-                    <!-- Thẻ 2 -->
                     <a class="border border-gray-200 bg-white rounded-lg hover:border-md-blue transition shadow-sm hover-lift flex flex-col justify-between overflow-hidden group"
                         href="#tin-tuc">
-
                         <div>
-                            <!-- Khung ảnh -->
                             <div class="h-44 overflow-hidden relative bg-gray-100">
                                 <img src="Tin tức 2.JPG" alt="Được công nhận doanh nghiệp khoa học công nghệ"
                                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                             </div>
-
                             <div class="p-5">
                                 <h3
                                     class="font-display text-lg font-bold uppercase text-gray-900 group-hover:text-md-blue transition leading-snug line-clamp-2">
                                     Được công nhận doanh nghiệp khoa học công nghệ
                                 </h3>
-
                                 <p class="mt-2.5 text-xs text-gray-600 leading-relaxed line-clamp-3">
                                     Sở Khoa học và Công nghệ Hải Phòng ghi nhận nỗ lực nghiên cứu và cải tiến công nghệ
                                     sản xuất xanh.
                                 </p>
                             </div>
                         </div>
-
-                        <!-- Chân thẻ: Ngày tháng bên trái | Xem chi tiết bên phải -->
                         <div class="px-5 pb-5 pt-0 flex items-center justify-between text-xs font-medium mt-auto">
-                            <span class="text-gray-500 flex items-center">
-                                <i class="far fa-calendar-alt text-md-blue mr-1.5"></i>
-                                08/09/2023
-                            </span>
-
-                            <span class="font-bold text-md-blue flex items-center">
-                                Xem chi tiết
-                                <i
-                                    class="fas fa-chevron-right ml-1 text-[10px] transform group-hover:translate-x-1 transition"></i>
-                            </span>
+                            <span class="text-gray-500 flex items-center"><i
+                                    class="far fa-calendar-alt text-md-blue mr-1.5"></i> 08/09/2023</span>
+                            <span class="font-bold text-md-blue flex items-center">Xem chi tiết <i
+                                    class="fas fa-chevron-right ml-1 text-[10px] transform group-hover:translate-x-1 transition"></i></span>
                         </div>
-
                     </a>
 
-                    <!-- Thẻ 3 -->
                     <a class="border border-gray-200 bg-white rounded-lg hover:border-md-blue transition shadow-sm hover-lift flex flex-col justify-between overflow-hidden group"
                         href="#tin-tuc">
-
                         <div>
-                            <!-- Khung ảnh -->
                             <div class="h-44 overflow-hidden relative bg-gray-100">
                                 <img src="Tin tức 3.JPG" alt="Cải tiến dây chuyền bột nhẹ"
                                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                             </div>
-
                             <div class="p-5">
                                 <h3
                                     class="font-display text-lg font-bold uppercase text-gray-900 group-hover:text-md-blue transition leading-snug line-clamp-2">
                                     Cải tiến, nâng công suất dây chuyền bột nhẹ
                                 </h3>
-
                                 <p class="mt-2.5 text-xs text-gray-600 leading-relaxed line-clamp-3">
                                     Nâng cấp hệ thống sấy và phân loại cỡ hạt, giúp ổn định độ mịn và độ trắng cho các
                                     đơn hàng xuất khẩu.
                                 </p>
                             </div>
                         </div>
-
-                        <!-- Chân thẻ: Ngày tháng bên trái | Xem chi tiết bên phải -->
                         <div class="px-5 pb-5 pt-0 flex items-center justify-between text-xs font-medium mt-auto">
-                            <span class="text-gray-500 flex items-center">
-                                <i class="far fa-calendar-alt text-md-blue mr-1.5"></i>
-                                20/06/2021
-                            </span>
-
-                            <span class="font-bold text-md-blue flex items-center">
-                                Xem chi tiết
-                                <i
-                                    class="fas fa-chevron-right ml-1 text-[10px] transform group-hover:translate-x-1 transition"></i>
-                            </span>
+                            <span class="text-gray-500 flex items-center"><i
+                                    class="far fa-calendar-alt text-md-blue mr-1.5"></i> 20/06/2021</span>
+                            <span class="font-bold text-md-blue flex items-center">Xem chi tiết <i
+                                    class="fas fa-chevron-right ml-1 text-[10px] transform group-hover:translate-x-1 transition"></i></span>
                         </div>
-
                     </a>
 
-                    <!-- Thẻ 4 -->
                     <a class="border border-gray-200 bg-white rounded-lg hover:border-md-blue transition shadow-sm hover-lift flex flex-col justify-between overflow-hidden group"
                         href="#tin-tuc">
-
                         <div>
-                            <!-- Khung ảnh -->
                             <div class="h-44 overflow-hidden relative bg-gray-100">
                                 <img src="Tin tức 4.png" alt="Đạt chứng nhận tiêu chuẩn ISO 9001:2015"
                                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                             </div>
-
                             <div class="p-5">
                                 <h3
                                     class="font-display text-lg font-bold uppercase text-gray-900 group-hover:text-md-blue transition leading-snug line-clamp-2">
                                     Đạt chứng nhận tiêu chuẩn ISO 9001:2015
                                 </h3>
-
                                 <p class="mt-2.5 text-xs text-gray-600 leading-relaxed line-clamp-3">
                                     Duy trì và cải tiến hệ thống quản lý chất lượng tiêu chuẩn quốc tế trên toàn bộ quy
                                     trình vận hành.
                                 </p>
                             </div>
                         </div>
-
-                        <!-- Chân thẻ: Ngày tháng bên trái | Xem chi tiết bên phải -->
                         <div class="px-5 pb-5 pt-0 flex items-center justify-between text-xs font-medium mt-auto">
-                            <span class="text-gray-500 flex items-center">
-                                <i class="far fa-calendar-alt text-md-blue mr-1.5"></i>
-                                15/11/2020
-                            </span>
-
-                            <span class="font-bold text-md-blue flex items-center">
-                                Xem chi tiết
-                                <i
-                                    class="fas fa-chevron-right ml-1 text-[10px] transform group-hover:translate-x-1 transition"></i>
-                            </span>
+                            <span class="text-gray-500 flex items-center"><i
+                                    class="far fa-calendar-alt text-md-blue mr-1.5"></i> 15/11/2020</span>
+                            <span class="font-bold text-md-blue flex items-center">Xem chi tiết <i
+                                    class="fas fa-chevron-right ml-1 text-[10px] transform group-hover:translate-x-1 transition"></i></span>
                         </div>
-
                     </a>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <section class="bg-gradient-to-r from-md-blue-dark via-md-blue to-blue-700 py-16 text-center text-white">
-
+        <!-- VÌ SAO CHỌN MINH ĐỨC -->
+        <section class="bg-md-gray py-14 lg:py-20 border-b border-gray-200">
             <div class="container-site">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-md-blue font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">ƯU THẾ
+                        VƯỢT TRỘI</span>
+                    <h2
+                        class="text-3xl lg:text-4xl font-display font-extrabold uppercase tracking-wide text-gray-900 section-title">
+                        Vì sao chọn Minh Đức
+                    </h2>
+                </div>
 
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <div
+                        class="border border-gray-200 bg-white p-8 text-center shadow-sm hover:border-md-blue transition-all duration-300 rounded-lg flex flex-col justify-between hover-lift">
+                        <div>
+                            <div
+                                class="w-16 h-16 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-5 text-md-blue text-2xl">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3 class="font-display text-xl font-bold uppercase text-gray-900 mb-3">Sản xuất xanh</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Thu hồi CO₂, hạn chế khói bụi trực tiếp ra
+                                môi trường, hướng tới kinh tế tuần hoàn.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="border border-gray-200 bg-white p-8 text-center shadow-sm hover:border-md-blue transition-all duration-300 rounded-lg flex flex-col justify-between hover-lift">
+                        <div>
+                            <div
+                                class="w-16 h-16 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-5 text-md-blue text-2xl">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="font-display text-xl font-bold uppercase text-gray-900 mb-3">ISO 9001:2015</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Hệ thống quản lý chất lượng được duy trì
+                                nghiêm ngặt trên toàn bộ dây chuyền sản xuất.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="border border-gray-200 bg-white p-8 text-center shadow-sm hover:border-md-blue transition-all duration-300 rounded-lg flex flex-col justify-between hover-lift">
+                        <div>
+                            <div
+                                class="w-16 h-16 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-5 text-md-blue text-2xl">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h3 class="font-display text-xl font-bold uppercase text-gray-900 mb-3">Chủ động nguyên liệu
+                            </h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Nguồn đá vôi Tràng Kênh chất lượng cao ngay
+                                tại khu vực nhà máy Hải Phòng.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="border border-gray-200 bg-white p-8 text-center shadow-sm hover:border-md-blue transition-all duration-300 rounded-lg flex flex-col justify-between hover-lift">
+                        <div>
+                            <div
+                                class="w-16 h-16 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-5 text-md-blue text-2xl">
+                                <i class="fas fa-truck-loading"></i>
+                            </div>
+                            <h3 class="font-display text-xl font-bold uppercase text-gray-900 mb-3">Giao hàng ổn định
+                            </h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Tổng công suất 135.000 tấn/năm, đáp ứng kịp
+                                thời cho nội địa và các thị trường xuất khẩu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KHÁCH HÀNG -->
+        <section class="container-site py-14 border-b border-gray-200 bg-white">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-md-blue font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">ĐỐI TÁC
+                    CHIẾN LƯỢC</span>
+                <h2
+                    class="font-display text-3xl md:text-4xl font-extrabold uppercase tracking-wide text-gray-900 section-title">
+                    Khách hàng tiêu biểu
+                </h2>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                <div
+                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
+                    <img src="Logo-HoaPhat.png" alt="Tập đoàn Hòa Phát" class="max-h-12 w-auto object-contain" />
+                </div>
+                <div
+                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
+                    <img src="Logo-Jotun.jpg" alt="Sơn Jotun" class="max-h-12 w-auto object-contain" />
+                </div>
+                <div
+                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
+                    <img src="Logo-TOA.png" alt="Sơn TOA" class="max-h-12 w-auto object-contain" />
+                </div>
+                <div
+                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
+                    <img src="Logo-Toto.png" alt="Thiết bị vệ sinh TOTO" class="max-h-10 w-auto object-contain" />
+                </div>
+                <div
+                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
+                    <img src="Logo-AnHoa.png" alt="Giấy An Hòa" class="max-h-10 w-auto object-contain" />
+                </div>
+                <div
+                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
+                    <img src="Logo-Picomat.png" alt="Picomat" class="max-h-10 w-auto object-contain" />
+                </div>
+                <div
+                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
+                    <img src="Logo-SRC.png" alt="Cao Su Sao Vàng" class="max-h-10 w-auto object-contain" />
+                </div>
+                <div
+                    class="flex h-24 items-center justify-center border border-gray-200 rounded-lg p-5 transition shadow-xs bg-white hover:border-md-blue hover-lift">
+                    <img src="Logo-VuHoang.png" alt="Hóa chất Vũ Hoàng" class="max-h-10 w-auto object-contain" />
+                </div>
+            </div>
+        </section>
+
+        <!-- LIÊN HỆ BÁO GIÁ -->
+        <section class="bg-gradient-to-r from-md-blue-dark via-md-blue to-blue-700 py-14 text-center text-white">
+            <div class="container-site">
                 <h2 class="font-display text-3xl md:text-5xl font-extrabold uppercase text-white tracking-wide">
                     Cần báo giá hoặc mẫu thử?
                 </h2>
-
                 <p class="mt-4 text-blue-100 text-lg md:text-xl font-light">
                     Phòng kinh doanh phản hồi nhanh chóng trong giờ làm việc.
                 </p>
-
                 <div class="mt-8">
-
                     <a class="inline-flex h-14 items-center justify-center px-10 text-base md:text-lg font-bold uppercase tracking-wider transition bg-white text-md-blue hover:bg-gray-100 rounded shadow-xl hover-lift"
                         href="lien-he.html">
-
-                        <i class="fas fa-paper-plane mr-2.5"></i>
-                        Gửi yêu cầu ngay
-
+                        <i class="fas fa-paper-plane mr-2.5"></i> Gửi yêu cầu ngay
                     </a>
-
                 </div>
-
             </div>
-
         </section>
 
     </main>
 
-
-
-    <footer class="bg-[#111827] text-gray-400 pt-16 pb-8 border-t-[6px] border-md-blue">
-
+    <!-- FOOTER -->
+    <footer class="bg-[#111827] text-gray-200 pt-16 pb-8 border-t-[6px] border-md-blue text-base">
         <div class="container-site">
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-
-                <div>
-
-                    <a class="flex items-center gap-3 mb-5" href="index.html">
-
-                        <img src="logo.png" alt="Hóa Chất Minh Đức Logo"
-                            class="h-12 bg-white p-1.5 rounded object-contain"
-                            onError="this.onerror=null; this.src='http://minhduc-caco3.com/images/MinhDuc/logo.png';" />
-
-                        <div>
-
-                            <span class="block font-display text-xl font-bold tracking-wide uppercase text-white">
-                                Minh Đức
-                            </span>
-
-                            <span class="block text-xs text-gray-400">
-                                Hóa chất · CaCO₃
-                            </span>
-
-                        </div>
-
-                    </a>
-
-
-                    <p class="text-sm leading-relaxed text-gray-300 font-medium">
-                        Công ty Cổ phần Hóa chất Minh Đức
-                    </p>
-
-                    <p class="mt-2 text-xs text-gray-400">
-                        ISO 9001:2015 | Doanh nghiệp KHCN Hải Phòng
-                    </p>
-
-
-                    <div class="flex space-x-3 mt-5">
-
-                        <a href="#"
-                            class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-md-blue transition shadow-md"
-                            aria-label="Facebook">
-
-                            <i class="fab fa-facebook-f text-sm"></i>
-
-                        </a>
-
-
-                        <a href="#"
-                            class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-md-blue transition shadow-md"
-                            aria-label="Youtube">
-
-                            <i class="fab fa-youtube text-sm"></i>
-
-                        </a>
-
-
-                        <a href="mailto:info@minhduc-caco3.com"
-                            class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-md-blue transition shadow-md"
-                            aria-label="Email">
-
-                            <i class="fas fa-envelope text-sm"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div>
-
-                    <h3
-                        class="font-display text-lg font-bold uppercase tracking-wider text-white mb-5 border-b border-gray-800 pb-2.5 inline-block">
-                        Sản phẩm
-                    </h3>
-
-                    <ul class="space-y-3 text-sm">
-
-                        <li>
-                            <a class="hover:text-white transition flex items-center" href="san-pham.html#voi-cao-caoh2">
-
-                                <i class="fas fa-chevron-right mr-2 text-[10px] text-md-blue">
-                                </i>
-
-                                Vôi sống &amp; vôi ngâm nước
-
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a class="hover:text-white transition flex items-center" href="san-pham.html#bot-nhe-caco3">
-
-                                <i class="fas fa-chevron-right mr-2 text-[10px] text-md-blue">
-                                </i>
-
-                                Bột nhẹ CaCO₃
-
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a class="hover:text-white transition flex items-center"
-                                href="san-pham.html#bot-nang-caco3">
-
-                                <i class="fas fa-chevron-right mr-2 text-[10px] text-md-blue">
-                                </i>
-
-                                Bột nặng CaCO₃
-
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a class="hover:text-white transition flex items-center"
-                                href="san-pham.html#khi-co2-liquefied">
-
-                                <i class="fas fa-chevron-right mr-2 text-[10px] text-md-blue">
-                                </i>
-
-                                Khí CO₂ hóa lỏng
-
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <div>
-
-                    <h3
-                        class="font-display text-lg font-bold uppercase tracking-wider text-white mb-5 border-b border-gray-800 pb-2.5 inline-block">
-                        Liên kết nhanh
-                    </h3>
-
-                    <ul class="space-y-3 text-sm">
-
-                        <li>
-                            <a class="hover:text-white transition flex items-center" href="gioi-thieu.html">
-
-                                <i class="fas fa-chevron-right mr-2 text-[10px] text-md-blue">
-                                </i>
-
-                                Giới thiệu chung
-
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a class="hover:text-white transition flex items-center" href="nha-may.html">
-
-                                <i class="fas fa-chevron-right mr-2 text-[10px] text-md-blue">
-                                </i>
-
-                                Thông tin nhà máy
-
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a class="hover:text-white transition flex items-center" href="#tin-tuc">
-
-                                <i class="fas fa-chevron-right mr-2 text-[10px] text-md-blue">
-                                </i>
-
-                                Tin tức &amp; sự kiện
-
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a class="hover:text-white transition flex items-center" href="lien-he.html">
-
-                                <i class="fas fa-chevron-right mr-2 text-[10px] text-md-blue">
-                                </i>
-
-                                Liên hệ báo giá
-
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <div>
-
-                    <h3
-                        class="font-display text-lg font-bold uppercase tracking-wider text-white mb-5 border-b border-gray-800 pb-2.5 inline-block">
-                        Liên hệ
-                    </h3>
-
-                    <ul class="space-y-3.5 text-sm">
-
-
-                        <li class="flex items-start">
-
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-md-blue text-base w-4 text-center">
-                            </i>
-
-                            <span class="leading-relaxed">
-                                Tổ dân phố Quyết Hùng, phường Bạch Đằng, TP. Hải Phòng
-                            </span>
-
-                        </li>
-
-
-                        <li class="flex items-center">
-
-                            <i class="fas fa-phone-alt mr-3 text-md-blue text-base w-4 text-center">
-                            </i>
-
-                            <span class="font-medium text-white">
-                                (84) 225.3661612
-                            </span>
-
-                        </li>
-
-
-                        <li class="flex items-start">
-
-                            <i class="fas fa-mobile-alt mt-1 mr-3 text-md-blue text-base w-4 text-center">
-                            </i>
-
-                            <div>
-
-                                <div class="mb-0.5">
-                                    Mr Đức:
-                                    <span class="text-white font-medium">
-                                        0913.523.355
-                                    </span>
-                                </div>
-
-                                <div>
-                                    Ms Đào:
-                                    <span class="text-white font-medium">
-                                        0838.324.557
-                                    </span>
-                                </div>
-
+            <!-- Flexbox: mỗi cột rộng theo nội dung (không dùng flex-1), justify-between chia đều khoảng trống giữa các cột -->
+            <div class="flex flex-wrap justify-between gap-x-8 gap-y-10 mb-12 items-start">
+
+                <!-- Cột 1: Logo và Thông tin chung (Độ rộng tự động theo nội dung) -->
+                <div
+                    class="w-full md:w-[calc(50%-1rem)] lg:w-auto lg:max-w-[340px] flex-none lg:flex-initial flex flex-col justify-between h-full">
+                    <div>
+                        <a class="flex items-center gap-3.5 mb-6 group" href="index.html">
+                            <img src="logo.png" alt="Logo Minh Đức"
+                                class="h-16 lg:h-20 w-auto object-contain shrink-0" />
+                            <div class="whitespace-nowrap">
+                                <div
+                                    class="text-blue-300 font-extrabold text-xs lg:text-sm uppercase tracking-wider leading-tight">
+                                    CÔNG TY CỔ PHẦN</div>
+                                <div
+                                    class="text-white font-extrabold text-base lg:text-lg uppercase leading-tight mt-0.5">
+                                    HÓA CHẤT MINH ĐỨC</div>
                             </div>
+                        </a>
+                        <ul class="space-y-3.5 text-base text-gray-200">
+                            <li class="flex items-start">
+                                <i
+                                    class="fas fa-map-marker-alt mt-1.5 mr-3 text-md-blue text-lg w-5 text-center shrink-0"></i>
+                                <span class="leading-relaxed">Tổ dân phố Quyết Hùng, phường Bạch Đằng, TP. Hải
+                                    Phòng</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone-alt mr-3 text-md-blue text-lg w-5 text-center shrink-0"></i>
+                                <span class="text-white font-semibold">(84) 225.3661612</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-3 text-md-blue text-lg w-5 text-center shrink-0"></i>
+                                <a href="mailto:info@minhduc-caco3.com"
+                                    class="hover:text-white transition">info@minhduc-caco3.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-                        </li>
+                <!-- Cột 2: Sản phẩm -->
+                <div
+                    class="w-full md:w-[calc(50%-1rem)] lg:w-auto flex-none lg:flex-initial flex flex-col justify-between h-full">
+                    <div>
+                        <h3
+                            class="font-display text-xl font-bold uppercase tracking-wider text-white mb-5 border-b border-gray-800 pb-2.5 inline-block">
+                            Sản phẩm
+                        </h3>
+                        <ul class="space-y-3 text-base">
+                            <li><a class="hover:text-white transition flex items-center"
+                                    href="san-pham.html#voi-cao-caoh2"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Vôi sống
+                                    &amp; vôi ngậm nước</a></li>
+                            <li><a class="hover:text-white transition flex items-center"
+                                    href="san-pham.html#bot-nhe-caco3"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Bột nhẹ
+                                    CaCO₃</a></li>
+                            <li><a class="hover:text-white transition flex items-center"
+                                    href="san-pham.html#bot-nang-caco3"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Bột nặng
+                                    CaCO₃</a></li>
+                            <li><a class="hover:text-white transition flex items-center"
+                                    href="san-pham.html#bot-phu-gia-thuc-pham"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Bột phụ
+                                    gia thực phẩm</a></li>
+                            <li><a class="hover:text-white transition flex items-center"
+                                    href="san-pham.html#bot-trang-phu"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Bột tráng
+                                    phủ</a></li>
+                            <li><a class="hover:text-white transition flex items-center"
+                                    href="san-pham.html#khi-co2-liquefied"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Khí CO₂
+                                    hóa lỏng</a></li>
+                        </ul>
+                    </div>
+                </div>
 
+                <!-- Cột 3: Liên kết nhanh -->
+                <div
+                    class="w-full md:w-[calc(50%-1rem)] lg:w-auto flex-none lg:flex-initial flex flex-col justify-between h-full">
+                    <div>
+                        <h3
+                            class="font-display text-xl font-bold uppercase tracking-wider text-white mb-5 border-b border-gray-800 pb-2.5 inline-block">
+                            Liên kết nhanh
+                        </h3>
+                        <ul class="space-y-3 text-base">
+                            <li><a class="hover:text-white transition flex items-center" href="gioi-thieu.html"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Giới
+                                    thiệu</a></li>
+                            <li><a class="hover:text-white transition flex items-center" href="nha-may.html"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Ban
+                                    ngành</a></li>
+                            <li><a class="hover:text-white transition flex items-center" href="#"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Báo
+                                    cáo</a></li>
+                            <li><a class="hover:text-white transition flex items-center" href="#"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Nội
+                                    bộ</a></li>
+                            <li><a class="hover:text-white transition flex items-center" href="#"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Cổ
+                                    đông</a></li>
+                            <li><a class="hover:text-white transition flex items-center" href="#tin-tuc"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Tin
+                                    tức</a></li>
+                            <li><a class="hover:text-white transition flex items-center" href="lien-he.html"><i
+                                        class="fas fa-chevron-right mr-2.5 text-xs text-md-blue shrink-0"></i> Liên
+                                    hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-                        <li class="flex items-center">
-
-                            <i class="fas fa-envelope mr-3 text-md-blue text-base w-4 text-center">
-                            </i>
-
-                            <span>
-                                info@minhduc-caco3.com
-                            </span>
-
-                        </li>
-
-                    </ul>
-
+                <!-- Cột 4: Liên hệ kinh doanh -->
+                <div
+                    class="w-full md:w-[calc(50%-1rem)] lg:w-auto flex-none lg:flex-initial flex flex-col justify-between h-full">
+                    <div>
+                        <h3
+                            class="font-display text-xl font-bold uppercase tracking-wider text-white mb-5 border-b border-gray-800 pb-2.5 inline-block">
+                            Liên hệ kinh doanh
+                        </h3>
+                        <ul class="space-y-4 text-base text-gray-200">
+                            <li>
+                                <div class="text-white font-semibold">PTGĐ Kinh doanh</div>
+                                <div class="leading-snug">Mr. Phạm Tiến Đức: <a href="tel:0913523355"
+                                        class="text-white font-semibold hover:text-md-blue transition">0913.523.355</a>
+                                </div>
+                                <div class="text-sm text-gray-400">Email: duc.minhduc@minhduc-caco3.com</div>
+                            </li>
+                            <li>
+                                <div class="text-white font-semibold">Kinh doanh nội địa</div>
+                                <div class="leading-snug">Trưởng phòng - Mr. Châu: <a href="tel:0338540903"
+                                        class="text-white font-semibold hover:text-md-blue transition">0338.540.903</a>
+                                </div>
+                                <div class="leading-snug">ĐTNV - Ms. Đào: <a href="tel:0838324557"
+                                        class="text-white font-semibold hover:text-md-blue transition">0838.324.557</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="text-white font-semibold">Kinh doanh XNK</div>
+                                <div class="leading-snug">Ms. Linh: <a href="tel:0968667269"
+                                        class="text-white font-semibold hover:text-md-blue transition">0968.667.269</a>
+                                </div>
+                                <div class="text-sm text-gray-400">Tel: 0225.3810970</div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
             </div>
 
-
-            <div class="border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
-
+            <div class="border-t border-gray-800 pt-6 text-center text-sm text-gray-400">
                 © 2026 Công ty Cổ phần Hóa chất Minh Đức. All rights reserved.
-
             </div>
-
         </div>
-
     </footer>
 
 </body>
